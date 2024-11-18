@@ -39,7 +39,14 @@ Before you begin, ensure you have met the following requirements:
    npm install
    ```
 
-3. Run the Frontend:
+3. **Create a `.env.local` file** in the `frontend` directory and add the following environment variables:
+   ```bash
+   API_URL=http://127.0.0.1:5000
+   NEXT_PUBLIC_API_URL=http://127.0.0.1:5000
+   ```
+   This will allow the frontend to communicate with the backend API.
+
+4. Run the Frontend:
    ```bash
    npm run dev
    ```
