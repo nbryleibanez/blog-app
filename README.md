@@ -65,6 +65,12 @@ Before you begin, ensure you have met the following requirements:
    docker-compose -f docker-compose.dev.yml up --build -d
    ``` 
 
+3. Stop the Backend Services:
+   ```bash
+   docker-compose -f docker-compose.dev.yml down --volumes
+   ```
+   ```
+
 ### Database Setup
   If this is your first time running the backend, you need to set up the database:
 
