@@ -36,7 +36,7 @@ Before you begin, ensure you have met the following requirements:
 
 2. **Install Dependencies (if running for the first time)**:
    ```bash
-   npm install
+   npm install --force
    ```
 
 3. **Create a `.env.local` file** in the `frontend` directory and add the following environment variables:
