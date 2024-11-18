@@ -62,12 +62,12 @@ Before you begin, ensure you have met the following requirements:
 
 2. Run with Docker Compose:
    ```bash
-   docker-compose -f docker-compose.dev.yml up --build -d
+   docker-compose -f docker-compose.yml up --build -d
    ``` 
 
 3. Stop the Backend Services:
    ```bash
-   docker-compose -f docker-compose.dev.yml down --volumes
+   docker-compose -f docker-compose.yml down --volumes
    ```
 
 ### Database Setup
@@ -75,11 +75,11 @@ Before you begin, ensure you have met the following requirements:
 
 1. Initialize the Database:
    ```bash
-   docker-compose -f docker-compose.dev.yml exec web flask db init
+   docker-compose -f docker-compose.yml exec web flask db init
    ```
 
 2. Run Migrations:
    ```bash
-   docker-compose -f docker-compose.dev.yml exec web flask db upgrade
+   docker-compose -f docker-compose.yml exec web flask db upgrade
    ```
    This will create the necessary database tables for your application.
