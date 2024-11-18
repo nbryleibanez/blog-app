@@ -10,7 +10,6 @@ Welcome to the Blog App! This application is built using **Next.js** for the fro
   - [Frontend](#frontend)
   - [Backend](#backend)
 - [Database Setup](#database-setup)
-- [License](#license)
 
 ## Features
 
@@ -36,9 +35,9 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 2. **Install Dependencies (if running for the first time)**:
-  ```bash
-  npm install
-  ```
+   ```bash
+   npm install
+   ```
 
 3. Run the Frontend:
   ```bash
