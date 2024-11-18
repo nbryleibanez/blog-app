@@ -83,3 +83,9 @@ Before you begin, ensure you have met the following requirements:
    docker-compose -f docker-compose.yml exec web flask db upgrade
    ```
    This will create the necessary database tables for your application.
+
+3. Seed the Database (Optional):
+   ```bash
+   docker-compose -f docker-compose.yml exec web python seed.py
+   ```
+   This will populate the database with sample data.
