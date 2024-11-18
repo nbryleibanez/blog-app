@@ -1,16 +1,9 @@
 import Link from "next/link"
-
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { Post } from "@/lib/interface"
 
-export default function BlogPostCard({ post }: { post: any }) {
+export default function BlogPostCard({ post }: { post: Post }) {
   const date = new Date(post.created_at)
   const formattedDate = date.toLocaleDateString("en-US", {
     year: "numeric",
@@ -19,21 +12,17 @@ export default function BlogPostCard({ post }: { post: any }) {
   });
 
   return (
-    <Card>
+    <Card className="flex flex-col h-full">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold">{post.title}</CardTitle>
-        <CardDescription>{post.author}</CardDescription>
+        <CardTitle className="text-2xl font-bold line-clamp-2">{post.title}</CardTitle>
+        <CardDescription>By {post.author.name}</CardDescription>
       </CardHeader>
-      <CardContent >
-        <div className="flex flex-col gap-2">
-          <p>{post.content}</p>
-          <div>
-            <p>{formattedDate}</p>
-          </div>
-        </div>
+      <CardContent className="flex-grow">
+        <p className="line-clamp-3">{post.content}</p>
+        <p className="text-sm text-muted-foreground mt-2">{formattedDate}</p>
       </CardContent>
       <CardFooter>
-        <Button>
+        <Button asChild>
           <Link href={`/blogs/${post.id}`}>Read more</Link>
         </Button>
       </CardFooter>

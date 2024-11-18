@@ -29,9 +29,6 @@
 /frontendyarn-debug.log*
 /frontendyarn-error.log*
 
-# frontend env files (can opt-in for committing if needed)
-/frontend.env*
-
 # frontend vercel
 /frontend.vercel
 

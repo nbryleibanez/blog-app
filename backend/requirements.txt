@@ -6,4 +6,5 @@ Flask-Cors
 psycopg2-binary
 redis
 python-dotenv
-
+Flask-JWT-Extended
+Werkzeug

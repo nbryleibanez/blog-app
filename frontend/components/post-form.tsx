@@ -7,6 +7,7 @@ import {
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getCookie } from "@/app/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -28,7 +29,6 @@ import {
 const FormSchema = z.object({
   title: z.string(),
   content: z.string(),
-  author: z.string(),
 });
 
 export default function PostForm() {
@@ -40,34 +40,33 @@ export default function PostForm() {
     defaultValues: {
       title: "",
       content: "",
-      author: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    setLoading(true); // set loading state to true when submitting
-    console.log(values);
+    setLoading(true);
+
+    const token = await getCookie("access_token");
 
     const input = {
       title: form.getValues().title,
       content: form.getValues().content,
-      author: form.getValues().author,
     };
 
     const res = await fetch(`http://127.0.0.1:5000/posts`, {
       method: "POST",
       headers: {
+        "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(input),
     });
 
     if (!res.ok) {
-      const error = await res.json();
-      toast(`${error.error}`, {
+      toast(`Something happened`, {
         description: "We're fixing this, Houston.",
       });
-      setLoading(false); // reset loading state if there is an error
+      setLoading(false);
       return;
     }
 
@@ -114,21 +113,7 @@ export default function PostForm() {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="author"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Author</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            {/* Removed the custom onClick, form submission is handled by the form's onSubmit */}
-            <CardFooter>
+            <CardFooter className="p-0">
               <Button disabled={loading} className="w-full" type="submit">
                 {loading ? <LoadingSpinner /> : "Submit"}
               </Button>
