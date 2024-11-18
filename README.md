@@ -35,7 +35,7 @@ Before you begin, ensure you have met the following requirements:
    cd frontend
    ```
 
-2. Install Dependencies (if running for the first time):
+2. **Install Dependencies (if running for the first time)**:
   ```bash
   npm install
   ```
