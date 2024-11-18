@@ -40,36 +40,34 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 3. Run the Frontend:
-  ```bash
-  npm run dev
-  ```
-
-  The frontend should now be running at http://localhost:3000.
+   ```bash
+   npm run dev
+   ```
+   The frontend should now be running at http://localhost:3000.
 
 
 ### Backend
 
 1. Navigate to the Backend Directory:
-  ```bash
-  cd backend
-  ```
+   ```bash
+   cd backend
+   ```
 
 2. Run with Docker Compose:
-  ```bash
-  docker-compose -f docker-compose.dev.yml up --build -d
-  ``` 
+   ```bash
+   docker-compose -f docker-compose.dev.yml up --build -d
+   ``` 
 
 ### Database Setup
   If this is your first time running the backend, you need to set up the database:
 
 1. Initialize the Database:
-  ```bash
-  docker-compose -f docker-compose.dev.yml exec web flask db init
-  ```
+   ```bash
+   docker-compose -f docker-compose.dev.yml exec web flask db init
+   ```
 
 2. Run Migrations:
-  ```bash
-  docker-compose -f docker-compose.dev.yml exec web flask db upgrade
-  ```
-
-This will create the necessary database tables for your application.
+   ```bash
+   docker-compose -f docker-compose.dev.yml exec web flask db upgrade
+   ```
+   This will create the necessary database tables for your application.
